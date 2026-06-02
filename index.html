@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>純前端工作清單 App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">純前端 App</p>
+          <h1>工作清單</h1>
+          <p class="subtitle">使用 HTML、CSS、JavaScript 實作，無框架。</p>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="切換主題">🌙</button>
+      </header>
+
+      <section class="task-card">
+        <form id="taskForm" class="task-form">
+          <label for="taskInput">新增任務</label>
+          <div class="form-row">
+            <input
+              id="taskInput"
+              type="text"
+              placeholder="輸入你的任務..."
+              autocomplete="off"
+              required
+            />
+            <button type="submit">新增</button>
+          </div>
+        </form>
+
+        <div class="task-count" id="taskCount">0 個任務</div>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

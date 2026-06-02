@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>背單字 App</title>
+    <link rel="stylesheet" href="vocabulary.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-content">
+          <h1 class="app-title">📚 背單字</h1>
+          <div class="nav-buttons">
+            <button id="navStudy" class="nav-btn active">學習</button>
+            <button id="navManage" class="nav-btn">管理</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Study Page -->
+      <section id="studyPage" class="page active">
+        <div class="study-container">
+          <div class="controls">
+            <select id="vocabularySelect" class="vocab-select">
+              <option value="">選擇單字庫...</option>
+            </select>
+            <button id="prevBtn" class="nav-arrow">← 上一個</button>
+            <button id="nextBtn" class="nav-arrow">下一個 →</button>
+          </div>
+
+          <div class="card-container">
+            <div class="card" id="flashcard">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="card-content">
+                    <p class="card-label">英文單字</p>
+                    <p class="card-word" id="cardWord">-</p>
+                  </div>
+                  <p class="card-hint">點擊翻頁</p>
+                </div>
+                <div class="card-back">
+                  <div class="card-content">
+                    <div class="back-item">
+                      <p class="card-label">翻譯</p>
+                      <p id="cardTranslation">-</p>
+                    </div>
+                    <div class="back-item">
+                      <p class="card-label">詞性</p>
+                      <p id="cardPOS">-</p>
+                    </div>
+                    <div class="back-item">
+                      <p class="card-label">例句</p>
+                      <p id="cardExample">-</p>
+                    </div>
+                    <div class="back-item">
+                      <p class="card-label">字根分析</p>
+                      <p id="cardEtymology">-</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats">
+            <span id="currentIndex">0</span> / <span id="totalCount">0</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Manage Page -->
+      <section id="managePage" class="page">
+        <div class="manage-container">
+          <div class="manage-header">
+            <h2>管理單字庫</h2>
+          </div>
+
+          <div class="manage-content">
+            <!-- Add Word Form -->
+            <div class="form-section">
+              <h3>新增單字</h3>
+              <form id="addWordForm" class="word-form">
+                <div class="form-group">
+                  <label for="wordInput">英文單字 *</label>
+                  <div class="input-with-btn">
+                    <input
+                      id="wordInput"
+                      type="text"
+                      placeholder="輸入英文單字"
+                      required
+                    />
+                    <button
+                      type="button"
+                      id="autoFillBtn"
+                      class="auto-fill-btn"
+                    >
+                      自動填入
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="translationInput">翻譯 *</label>
+                  <input
+                    id="translationInput"
+                    type="text"
+                    placeholder="輸入中文翻譯"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="posInput">詞性</label>
+                  <input
+                    id="posInput"
+                    type="text"
+                    placeholder="例：noun, verb, adjective"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInput">例句</label>
+                  <textarea
+                    id="exampleInput"
+                    placeholder="輸入例句"
+                    rows="3"
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="etymologyInput">字根分析</label>
+                  <textarea
+                    id="etymologyInput"
+                    placeholder="輸入字根分析"
+                    rows="3"
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">新增單字</button>
+              </form>
+            </div>
+
+            <!-- Word List -->
+            <div class="list-section">
+              <h3>已有單字 (<span id="wordCount">0</span>)</h3>
+              <div id="wordList" class="word-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Loading Indicator -->
+      <div id="loadingIndicator" class="loading-indicator">
+        <div class="spinner"></div>
+        <p>載入中...</p>
+      </div>
+    </div>
+
+    <script src="vocabulary.js"></script>
+  </body>
+</html>
